@@ -146,11 +146,11 @@ const ProductHeader = ({setOpen, navigation, classNames}) => {
                             <div className="hidden lg:ml-8 lg:flex">
                                 <span className="flex items-center text-gray-700 hover:text-gray-800">
                                     <img
-                                        src="https://tailwindui.com/img/flags/flag-canada.svg"
-                                        alt=""
+                                        src="https://countryflagsapi.com/png/in"
+                                        alt="flag"
                                         className="block h-auto w-5 flex-shrink-0"
                                     />
-                                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                                    <span className="ml-3 block text-sm font-medium">INR</span>
                                     <span className="sr-only">, change currency</span>
                                 </span>
                             </div>

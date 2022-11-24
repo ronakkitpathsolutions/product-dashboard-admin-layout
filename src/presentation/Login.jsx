@@ -4,13 +4,15 @@ import Button from '../common/Forms/Button'
 import Form from '../common/Forms/Form'
 import Input from '../common/Forms/Input'
 import useLogin from '../components/login'
+import Logo from './Logo'
 
 const Login = ({ ...props }) => {
     const { handleSubmit, initialFormData } = useLogin()
     return (
         <section {...props} className="relative flex h-screen">
-            <div className="w-full h-full p-6 sm:p-8 md:p-2 lg:p-16 xl:p-16 2xl:p-0 flex justify-center items-center">
+            <div className="relative w-full h-full p-6 sm:p-8 md:p-2 lg:p-16 xl:p-16 2xl:p-0 flex justify-center items-center">
                 <div className="container">
+                    <Logo redirect className="absolute top-[24px] left-[24px] flex justify-center items-center" />
                     <img
                         src="./assets/welcome.svg"
                         alt="welcome"
