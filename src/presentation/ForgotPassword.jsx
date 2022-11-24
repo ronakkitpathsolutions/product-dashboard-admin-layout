@@ -25,7 +25,7 @@ const ForgotPassword = ({ ...props }) => {
                         alt="welcome"
                         className="mx-auto w-[150px] mb-4 sm:mb-4 sm:w-[175px] md:w-[200px] md:mb-8 lg:mb-8 xl:mb-8 2xl:mb-8 sm:mb-12 lg:w-[230px] xl:w-[170px] 2xl:w-[180px]"
                     />
-                    <p className='text-sm text-center font-medium my-5 mx-5 sm:mx-32 md:mx-12 xl:mx-32 2xl:mx-24 pt-1 mb-0' >Enter your email and we'll send you a link to reset your password.</p>
+                    <p className='text-sm text-gray-500 text-center font-medium my-5 mx-5 sm:mx-32 md:mx-12 xl:mx-32 2xl:mx-24 pt-1 mb-0' >Enter your email and we'll send you a link to reset your password.</p>
                     <Form className="mx-auto sm:w-[350px] md:w-[340px] lg:w-[400px] xl:w-[400px] 2xl:w-[400px]" {...{ handleSubmit }} >
                         {initialFormData.map(({ id, ...otherData }) => (
                             <Input
