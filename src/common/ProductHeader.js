@@ -4,7 +4,9 @@ import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React, { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
+import Logo from '../presentation/Logo'
 import Button from './Forms/Button'
+import Badge from './utilities/Badge'
 
 const ProductHeader = ({setOpen, navigation, classNames}) => {
     return (
@@ -23,14 +25,7 @@ const ProductHeader = ({setOpen, navigation, classNames}) => {
 
                         {/* Logo */}
                         <div className="ml-4 flex lg:ml-0">
-                            <NavLink to='/'>
-                                <span className="sr-only">Your Company</span>
-                                <img
-                                    className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                    alt=""
-                                />
-                            </NavLink>
+                            <Logo redirect name="logo" logoClassName="h-8 w-auto" />
                         </div>
 
                         {/* Flyout menus */}
@@ -121,14 +116,11 @@ const ProductHeader = ({setOpen, navigation, classNames}) => {
                                 ))}
 
                                 {navigation.pages.map((page) => (
-                                    <NavLink
-                                        key={page.name}
-                                        to={page.href}
-                                        className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                                    >
+                                    <NavLink key={page.name} to={page.href} className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800" >
                                         {page.name}
                                     </NavLink>
                                 ))}
+
                             </div>
                         </Popover.Group>
 
@@ -144,27 +136,22 @@ const ProductHeader = ({setOpen, navigation, classNames}) => {
                             </div>
 
                             <div className="hidden lg:ml-8 lg:flex">
-                                <span className="flex items-center text-gray-700 hover:text-gray-800">
-                                    <img
-                                        src="https://countryflagsapi.com/png/in"
-                                        alt="flag"
-                                        className="block h-auto w-5 flex-shrink-0"
-                                    />
+                                <div className="flex items-center text-gray-700 hover:text-gray-800">
+                                    <img className="block h-auto w-5 flex-shrink-0" src="https://countryflagsapi.com/png/in" alt="flag" />
                                     <span className="ml-3 block text-sm font-medium">INR</span>
-                                    <span className="sr-only">, change currency</span>
-                                </span>
+                                </div>
                             </div>
 
                             {/* Search */}
                             <div className="flex lg:ml-6 p-2 text-gray-400 hover:text-gray-500">
-                                    <span className="sr-only">Search</span>
-                                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
+                                <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
                             </div>
 
                             {/* Cart */}
                             <div className="ml-4 flow-root lg:ml-6">
-                                <NavLink className="flex" to="/add-to-cart">
+                                <NavLink className="flex relative" to="/add-to-cart/04">
                                     <ShoppingBagIcon className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
+                                    <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{count:1}} />
                                 </NavLink>
                             </div>
                         </div>

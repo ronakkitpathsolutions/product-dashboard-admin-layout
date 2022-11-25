@@ -1,5 +1,11 @@
 export const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
 
+export const roles = {
+  user: "user",
+  admin: "admin",
+  order_manager: "order_manager"
+}
+
 export const product_navigation = {
     categories: [
       {
@@ -117,8 +123,5 @@ export const product_navigation = {
         ],
       },
     ],
-    pages: [
-      { name: 'Company', href: '#' },
-      { name: 'Stores', href: '#' },
-    ],
+    pages: []
   }

@@ -5,7 +5,7 @@ import Routing from './Router/routing';
 const App = () => {
   return (
     <Suspense fallback={<Loader />} >
-      <Routing />
+      <Routing {...{isLoggedIn: true}} />
     </Suspense>
   );
 }
