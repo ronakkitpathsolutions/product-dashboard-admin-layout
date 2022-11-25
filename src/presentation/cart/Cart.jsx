@@ -57,8 +57,8 @@ const Cart = ({ ...props }) => {
                     </div>
                     <TotalAmount className="border-t border-gray-200 py-6 px-4 lg:px-0 sm:w-[460px] sm:px-1 md:w-full mx-auto lg:w-[500px]" {...{sub_total: 200.00}} />
                 </div>
-                <div className='border col-span-12 md:col-span-5'>
-                    <Addresses {...{}} className="text-gray-400 body-font" />
+                <div className='col-span-12 md:col-span-5'>
+                    <Addresses className="text-gray-400 body-font" />
                 </div>
                 <div className='border col-span-12'>col4</div>
             </div>
