@@ -1,5 +1,5 @@
 import { Popover, Transition } from '@headlessui/react'
-import { Bars3Icon } from '@heroicons/react/24/outline'
+import { Bars3Icon, UserCircleIcon } from '@heroicons/react/24/outline'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React, { Fragment } from 'react'
@@ -8,18 +8,14 @@ import Logo from '../presentation/Logo'
 import Button from './Forms/Button'
 import Badge from './utilities/Badge'
 
-const ProductHeader = ({setOpen, navigation, classNames}) => {
+const ProductHeader = ({setOpen, isLoggedIn, navigation, classNames}) => {
     return (
         <header className="relative bg-white">
             <nav aria-label="Top" className="mx-auto w-full px-4 sm:px-6 lg:px-8">
                 <div className="border-b border-gray-200">
                     <div className="flex h-16 items-center">
-                        <Button
-                            type="button"
-                            className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
-                            handleClick={() => setOpen(true)}
-                        >
-                            <span className="sr-only">Open menu</span>
+                        <Button className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                            handleClick={() => setOpen(true)} >
                             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                         </Button>
 
@@ -41,7 +37,7 @@ const ProductHeader = ({setOpen, navigation, classNames}) => {
                                                             open
                                                                 ? 'border-indigo-600 text-indigo-600'
                                                                 : 'border-transparent text-gray-700 hover:text-gray-800',
-                                                            'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
+                                                            'outline-none relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                                                         )}
                                                     >
                                                         {category.name}
@@ -149,10 +145,10 @@ const ProductHeader = ({setOpen, navigation, classNames}) => {
 
                             {/* Cart */}
                             <div className="ml-4 flow-root lg:ml-6">
-                                <NavLink className="flex relative" to="/add-to-cart/04">
+                                { isLoggedIn ? <UserCircleIcon className="text-indigo-500 h-8 w-8" aria-hidden="true" /> : <NavLink className="flex relative" to="/add-to-cart/04">
                                     <ShoppingBagIcon className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
                                     <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{count:1}} />
-                                </NavLink>
+                                </NavLink>}
                             </div>
                         </div>
                     </div>
