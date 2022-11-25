@@ -147,7 +147,7 @@ const ProductHeader = ({setOpen, isLoggedIn, navigation, classNames}) => {
                             <div className="ml-4 flow-root lg:ml-6">
                                 { isLoggedIn ? <UserCircleIcon className="text-indigo-500 h-8 w-8" aria-hidden="true" /> : <NavLink className="flex relative" to="/add-to-cart/04">
                                     <ShoppingBagIcon className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
-                                    <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{count:1}} />
+                                    <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{count:1, type:'count'}} />
                                 </NavLink>}
                             </div>
                         </div>

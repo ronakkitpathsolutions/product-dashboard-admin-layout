@@ -4,10 +4,10 @@ import Button from '../Forms/Button'
 
 const TotalAmount = ({sub_total, ...props}) => {
 
-    const navigate  = useHistory()
+    const navigate = useHistory()
 
     return (
-        <div {...props} className="border-t border-gray-200 py-6 px-4 sm:px-6">
+        <div {...props}>
             <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
                 <p className='text-2xl' >$ {sub_total}</p>

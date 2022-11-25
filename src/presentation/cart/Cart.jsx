@@ -1,9 +1,10 @@
-import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 import React from 'react'
+import { ShoppingCartIcon } from '@heroicons/react/24/outline'
+import Topbar from '../Topbar'
 import Item from '../../common/Item'
+import Addresses from '../../common/utilities/Addresses'
 import List from '../../common/utilities/List'
 import TotalAmount from '../../common/utilities/TotalAmount'
-import Topbar from '../Topbar'
 
 const products = [
     {
@@ -54,9 +55,11 @@ const Cart = ({ ...props }) => {
                             {products.map(({ id, ...data }) => <Item className="flex py-6 px-1 sm:w-[460px] sm:mx-auto md:w-full w-full lg:mx-auto lg:w-[500px]" key={id} {...data} />)}
                         </List>
                     </div>
-                    <TotalAmount className="border-t border-gray-200 py-6 px-4 sm:px-6" {...{sub_total: 200.00}} />
+                    <TotalAmount className="border-t border-gray-200 py-6 px-4 lg:px-0 sm:w-[460px] sm:px-1 md:w-full mx-auto lg:w-[500px]" {...{sub_total: 200.00}} />
                 </div>
-                <div className='border col-span-12 md:col-span-5'>col3</div>
+                <div className='border col-span-12 md:col-span-5'>
+                    <Addresses {...{}} className="text-gray-400 body-font" />
+                </div>
                 <div className='border col-span-12'>col4</div>
             </div>
         </section>
