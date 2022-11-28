@@ -19,7 +19,8 @@ module.exports = {
     },
     extend: {
       screens: {
-        "xs": "375px"
+        "xs": "375px",
+        "2xs": "280px"
       },
       inset: {
         '4px': '-4px',

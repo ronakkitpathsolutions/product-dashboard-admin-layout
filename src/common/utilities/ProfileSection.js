@@ -4,8 +4,9 @@ import React, { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
 import useProfile from '../../components/profile'
 import { classNames } from '../../utils/function'
+import Icon from '../Icon'
 
-const ProfileSection = ({links, ...props}) => {
+const ProfileSection = ({ links, ...props }) => {
 
     const { linksData } = useProfile()
 
@@ -14,7 +15,7 @@ const ProfileSection = ({links, ...props}) => {
             <div>
                 <Menu.Button className="flex max-w-xs items-center rounded-full text-sm">
                     <span className="sr-only">Open user menu</span>
-                    <UserCircleIcon className="h-7 w-7 cursor-pointer" aria-hidden="true" />
+                    <UserCircleIcon className="h-7 w-7 cursor-pointer text-indigo-500" aria-hidden="true" />
                 </Menu.Button>
             </div>
             <Transition
@@ -27,12 +28,16 @@ const ProfileSection = ({links, ...props}) => {
                 leaveTo="transform opacity-0 scale-95"
             >
                 <Menu.Items className="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {linksData.map(({ id, type, name, onClick, to }) => (
+                    {linksData.map(({ id, type, name, onClick, to, iconType }) => (
                         <Menu.Item key={id}>
                             {({ active }) => type === "link" ?
-                                <NavLink {...{ to }} className={classNames( active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                                    {name}
-                                </NavLink> : <span {...{ onClick }} className={classNames( active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')} >{name}</span>
+                                <NavLink {...{ to }} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                                    <div className='flex justify-start items-center' >
+                                        <Icon type={iconType} className="mr-2 w-6 h-6 text-indigo-500" /> <span className=' text-[16px] text-indigo-500' >{name}</span>
+                                    </div>
+                                </NavLink> : <div {...{ onClick }} className={classNames(active ? 'bg-gray-100' : '', 'flex justify-start items-center cursor-pointer px-4 py-2 text-sm text-gray-700')} >
+                                    <Icon type={iconType} className="mr-2 w-6 h-6 text-indigo-500" /> <span className=' text-[16px] text-indigo-500' >{name}</span>
+                                </div>
                             }
                         </Menu.Item>
                     ))}

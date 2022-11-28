@@ -13,7 +13,7 @@ const Topbar = () => {
 
     const { open, setOpen, classNames, product_navigation, isLoggedIn } = useLanding()
 
-    return <ProductBar className="bg-white" >
+    return <ProductBar className="bg-white z-50 w-full fixed" >
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
                 <Transition.Child

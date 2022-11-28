@@ -22,20 +22,29 @@ const useProfile = (otherData) => {
 
     const linksData = [
         {
-            id: "profile",
-            name: "Profile",
+            id: "wishlists",
+            name: "Wishlists",
             type: "link",
-            to: "/profile"
+            to: "/wish-lists",
+            iconType: "heart"
+        },
+        {
+            id: "orders",
+            name: "Orders",
+            type: "link",
+            to: "/orders",
+            iconType: "orders"
         },
         {
             id: "log_out",
             name: "Logout",
             type: "button",
+            iconType: "logout",
             onClick: handleLogOut
         }
     ]
 
-    return { formData, handleLogOut, linksData }
+    return { formData, handleLogOut, linksData, setFormData }
 }
 
 export default useProfile

@@ -146,8 +146,8 @@ const ProductHeader = ({ setOpen, isLoggedIn, navigation, classNames }) => {
                             </div> : null}
                             
                             {/* Account */}
-                            {isLoggedIn ? <div className="flex md:ml-2 lg:ml-3 p-2 text-indigo-500 hover:text-indigo-700">
-                                <ProfileSection />
+                            {isLoggedIn ? <div className="flex md:ml-2 lg:ml-3 p-2">
+                                <ProfileSection/>
                             </div> : <div className="hidden lg:ml-8 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                                 <NavLink to="/login" href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                                     Sign in
