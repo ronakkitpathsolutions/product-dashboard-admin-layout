@@ -2,7 +2,7 @@ import React, { Suspense, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import Loader from './common/Loader';
 import { setLoggedUser } from './redux/action';
-import Routing from './Router/routing';
+import Routing from './Router/Routing';
 import { decodeToken, isTokenActivated } from './utils/function';
 import { clearLocalStorage, getDataFromLocal } from './utils/localstorage';
 
