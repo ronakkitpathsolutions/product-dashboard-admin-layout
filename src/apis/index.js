@@ -1,5 +1,4 @@
 import axios from "axios"
-import { clearLocalStorage } from "../utils/localstorage";
 import { handleLogout } from "../utils/function";
 
 const instance = axios.create({
@@ -25,7 +24,6 @@ instance.interceptors.response.use(
         if (
             [401, 402, 403].includes(error.response.status)
         ) {
-            clearLocalStorage()
             handleLogout()
         }
         return Promise.reject(error)

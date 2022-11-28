@@ -1,6 +1,7 @@
 import jwt_decode from "jwt-decode";
-import { setLoggedUser } from "../redux/action";
+import { setLogOutUser } from "../redux/action";
 import { store } from '../store'
+import { clearLocalStorage } from "./localstorage";
 
 export const retry = (fn, retriesLeft = 5, interval = 1000) => {
     return new Promise((resolve, reject) => {
@@ -17,9 +18,8 @@ export const retry = (fn, retriesLeft = 5, interval = 1000) => {
 }
 
 export const handleLogout = () => {
-    localStorage.clear()
-    store.dispatch(setLoggedUser({}))
-    // window.location.href = '/'
+    clearLocalStorage()
+    store.dispatch(setLogOutUser({}))
 }
 
 export const classNames = (...classes) => classes.filter(Boolean).join(' ')

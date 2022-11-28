@@ -11,7 +11,7 @@ const Item = ({imageSrc, imageAlt, href, name, price, color, quantity, ...props 
             <div className="ml-4 flex flex-1 flex-col">
                 <div>
                     <div className="flex justify-between text-base font-medium text-gray-900">
-                        <h3> <span>{name}</span> </h3>
+                        <h3>{name}</h3>
                         <div className="flex">
                         <Button className="font-medium text-indigo-600 hover:text-indigo-500">
                             <TrashIcon className='font-bold w-[25px] text-red-500' />

@@ -6,3 +6,10 @@ export const setLoggedUser = (payload) => {
         payload
     }
 }
+
+export const setLogOutUser = (payload = {}) => {
+    return {
+        type: constant.LOG_OUT,
+        payload
+    }
+}

@@ -10,6 +10,8 @@ export const userData = (state = initialState, action) => {
             return {
                 ...state, ...payload
             }
+        case constant.LOG_OUT:
+            return {}
         default: return state
     }
 }
