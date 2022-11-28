@@ -4,9 +4,9 @@ import Topbar from './Topbar'
 
 const Landing = ({ ...props }) => {
     return (
-        <section className='relative w-screen'  {...props} >
+        <section className='relative w-full'  {...props} >
             <OfferHeading />
-            <Topbar/>
+            <Topbar />
         </section>
     )
 }

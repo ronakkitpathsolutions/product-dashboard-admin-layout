@@ -8,7 +8,7 @@ import Logo from '../presentation/Logo'
 import Button from './Forms/Button'
 import Badge from './utilities/Badge'
 
-const ProductHeader = ({setOpen, isLoggedIn, navigation, classNames}) => {
+const ProductHeader = ({ setOpen, isLoggedIn, navigation, classNames }) => {
     return (
         <header className="relative bg-white">
             <nav aria-label="Top" className="mx-auto w-full px-4 sm:px-6 lg:px-8">
@@ -53,7 +53,7 @@ const ProductHeader = ({setOpen, isLoggedIn, navigation, classNames}) => {
                                                     leaveFrom="opacity-100"
                                                     leaveTo="opacity-0"
                                                 >
-                                                    <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
+                                                    <Popover.Panel className="z-40 absolute inset-x-0 top-full text-sm text-gray-500">
                                                         {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                                         <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
 
@@ -133,7 +133,7 @@ const ProductHeader = ({setOpen, isLoggedIn, navigation, classNames}) => {
 
                             <div className="hidden lg:ml-8 lg:flex">
                                 <div className="flex items-center text-gray-700 hover:text-gray-800">
-                                    <img className="block h-auto w-5 flex-shrink-0" src="https://countryflagsapi.com/png/in" alt="flag" />
+                                    <img className="block h-auto w-5 flex-shrink-0" src="./assets/flag_small.webp" alt="flag" />
                                     <span className="ml-3 block text-sm font-medium">INR</span>
                                 </div>
                             </div>
@@ -145,9 +145,9 @@ const ProductHeader = ({setOpen, isLoggedIn, navigation, classNames}) => {
 
                             {/* Cart */}
                             <div className="ml-4 flow-root lg:ml-6">
-                                { isLoggedIn ? <UserCircleIcon className="text-indigo-500 h-8 w-8" aria-hidden="true" /> : <NavLink className="flex relative" to="/add-to-cart/04">
+                                {isLoggedIn ? <UserCircleIcon className="text-indigo-500 h-8 w-8" aria-hidden="true" /> : <NavLink className="flex relative" to="/add-to-cart/04">
                                     <ShoppingBagIcon className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
-                                    <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{count:1, type:'count'}} />
+                                    <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{ count: 1, type: 'count' }} />
                                 </NavLink>}
                             </div>
                         </div>

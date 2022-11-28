@@ -135,7 +135,7 @@ const Topbar = () => {
                       <div className="border-t border-gray-200 py-6 px-4">
                           <span className="-m-2 flex items-center p-2">
                               <img
-                                  src="https://countryflagsapi.com/png/in"
+                                  src="./assets/flag_small.webp"
                                   alt="flag"
                                   className="block h-auto w-5 flex-shrink-0"
                               />
