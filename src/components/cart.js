@@ -3,7 +3,11 @@ import { useState } from 'react'
 const useCart = () => {
 
     const [activeKey, setActiveKey] = useState(null)
-    const handleActive = (value) => setActiveKey(value)
+
+    const handleActiveStep = (value) => {
+        console.log('value', value)
+        setActiveKey(value)
+    }
 
     const stepsData = [
         {
@@ -28,7 +32,7 @@ const useCart = () => {
         }
     ]
 
-  return { stepsData, activeKey, handleActive }
+  return { stepsData, activeKey, handleActiveStep }
 }
 
 export default useCart
