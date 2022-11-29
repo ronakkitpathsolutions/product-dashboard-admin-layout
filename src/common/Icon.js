@@ -1,5 +1,6 @@
 import {
     ArrowLeftOnRectangleIcon,
+    ArrowRightIcon,
     CreditCardIcon,
     HeartIcon,
     MapPinIcon,
@@ -16,6 +17,7 @@ const Icon = ({ type, ...props }) => {
         case 'cart': return <ShoppingCartIcon {...props} />
         case 'location': return <MapPinIcon {...props} />
         case 'money': return <CreditCardIcon {...props} />
+        case 'right_arrow': return <ArrowRightIcon {...props} />
         default: return null
     }
 }

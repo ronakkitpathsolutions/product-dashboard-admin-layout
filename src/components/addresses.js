@@ -64,7 +64,7 @@ const useAddresses = (data) => {
             city: 'Ahmedabad',
             state: 'Gujarat',
             pin_code: 380001,
-            isDefaultShipping: false
+            isDefaultShipping: true
         },
         {
             id: "2",
@@ -78,7 +78,7 @@ const useAddresses = (data) => {
             city: 'Junagadh',
             state: 'Gujarat',
             pin_code: 362130,
-            isDefaultShipping: true
+            isDefaultShipping: false
         }
     ]
 

@@ -2,6 +2,8 @@ import React from 'react'
 import useAddresses from '../../components/addresses'
 import AddressCard from './AddressCard'
 import newAddress from '../../assets/new_address.svg'
+import Button from '../Forms/Button'
+import Icon from '../Icon'
 
 const Addresses = ({ ...props }) => {
 
@@ -24,6 +26,9 @@ const Addresses = ({ ...props }) => {
                         </div>
                     </div>
                 </div>
+                <Button {...{label: "Continue"}} className="flex mt-8 ml-auto w-auto justify-center items-center text-white w-full bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    Continue <Icon type="right_arrow" className="w-5 h-5 ml-2 mt-[2px] text-white" />
+                </Button>
             </div>
         </section>
     )

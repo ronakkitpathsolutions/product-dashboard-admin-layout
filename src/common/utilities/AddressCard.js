@@ -9,7 +9,7 @@ const AddressCard = ({ addresses, ...props }) => {
                 <div className={classNames(isDefaultShipping ? "border-indigo-500" : "border-gray-300", "h-full p-6 rounded-lg border-2 flex flex-col relative overflow-hidden")}>
                     {isDefaultShipping ? <span className="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">SELECTED</span> : null}
                     <h2 className="bg-indigo-500 text-sm tracking-widest text-white px-1 mr-auto rounded title-font mb-1 font-medium">{data.type_of_address}</h2>
-                    <h1 className="text-xl text-gray-900 leading-none flex items-center pb-4 mb-3 border-b border-gray-200">
+                    <h1 className="text-xl text-gray-900 leading-none flex items-center pb-2 mb-3 border-b border-gray-200">
                         <span>{shipping_name}</span>
                     </h1>
                     <p className="flex text-gray-600 mb-2">

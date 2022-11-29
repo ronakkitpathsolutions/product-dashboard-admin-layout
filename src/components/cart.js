@@ -2,10 +2,9 @@ import { useState } from 'react'
 
 const useCart = () => {
 
-    const [activeKey, setActiveKey] = useState(null)
+    const [activeKey, setActiveKey] = useState('order_details')
 
     const handleActiveStep = (value) => {
-        console.log('value', value)
         setActiveKey(value)
     }
 

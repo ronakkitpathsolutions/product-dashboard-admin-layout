@@ -48,7 +48,7 @@ const Cart = ({ ...props }) => {
             <div className='grid gap-4 grid-cols-12 px-4 sm:px-8 p-4' >
                 <div className='w-full col-span-12 mt-[62px] md:col-span-12'>
                     <div className='flex items-center justify-center mt-4 mb-4 xs:mb-6'>
-                        <OrderSteps {...{ stepsData, handleActiveStep }} className="w-[1024px] xs:w-[300px] sm:w-[450px] md:w-[80%] lg:w-[70%] xl:w-[60%] grid grid-cols-12 divide-x divide-gray-100 overflow-hidden rounded-lg border border-gray-100 text-sm text-gray-500 2xs:grid-cols-3 sm:grid-cols-3" />
+                        <OrderSteps {...{ stepsData, activeKey, handleActiveStep }} className="w-[1024px] xs:w-[300px] sm:w-[450px] md:w-[80%] lg:w-[70%] xl:w-[60%] grid grid-cols-12 divide-x divide-gray-100 overflow-hidden rounded-lg border border-gray-100 text-sm text-gray-500 2xs:grid-cols-3 sm:grid-cols-3" />
                     </div>
                     <CheckoutSteps {...{products}} name={activeKey} />
                 </div>
