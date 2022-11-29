@@ -37,7 +37,7 @@ const Login = ({ ...props }) => {
                             <NavLink to="/forgot-password" >Forgot password?</NavLink>
                         </span>
                         <Button disabled={isLoading} className="flex justify-center items-center text-white w-full bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-                            type="submit" label="Login">Login {isLoading ? <Spinner size="xs" spinnerStyle="ml-1 -mt-[3px]" /> : null}</Button>
+                            type="submit" >{ isLoading ? "Loading" : "Login" }{isLoading ? <Spinner spinnerStyle="ml-1 -mt-[3px] w-4 h-4" /> : null}</Button>
                         <p className="text-sm text-center font-semibold mt-2 pt-1 mb-0">
                             Don't have an account?
                             <span className="ml-1 text-indigo-500 hover:text-indigo-700 focus:text-indigo-700 transition duration-200 ease-in-out cursor-pointer">

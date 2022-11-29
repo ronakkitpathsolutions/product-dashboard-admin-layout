@@ -134,3 +134,88 @@ export const constant = {
   IS_LOGGED_IN: "IS_LOGGED_IN",
   LOG_OUT: "LOG_OUT"
 }
+
+export const socialLinks = [
+  {
+    id: "facebook",
+    type: "facebook",
+  },
+  {
+    id: "twitter",
+    type: "twitter",
+  },
+  {
+    id: "instagram",
+    type: "instagram",
+  },
+  {
+    id: "linkedin",
+    type: "linkedin",
+  }
+]
+
+export const footer_links = [
+  {
+    id: "need_help",
+    label: "Need Help",
+    links: [
+      {
+        id: "contact_us",
+        label: "Contact Us",
+        to: "/contact-us",
+      },
+      {
+        id: "return_policy",
+        label: "Return Policy",
+        to: "/return-policy"
+      },
+      {
+        id: "faq",
+        label: "FAQs",
+        to: "/faq"
+      },
+      {
+        id: "my_account",
+        label: "Account",
+        to: "/my-account"
+      }
+    ]
+  },
+  {
+    id: "company",
+    label: "Company",
+    links: [
+      {
+        id: "about_us",
+        label: "About Us",
+        to: "/about-us",
+      },
+      {
+        id: "our_team",
+        label: "Our Team",
+        to: "/our-team"
+      },
+      {
+        id: "our_location",
+        label: "Our location",
+        to: "/our-location"
+      }
+    ]
+  },
+  {
+    id: "more_info",
+    label: "More Info",
+    links: [
+      {
+        id: "terms_and_condition",
+        label: "Terms & Condition",
+        to: "/terms-condition"
+      },
+      {
+        id: "privacy_policy",
+        label: "Privacy Policy",
+        to: "/privacy-policy"
+      }
+    ]
+  }
+]

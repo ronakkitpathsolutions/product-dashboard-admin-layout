@@ -9,11 +9,11 @@ import CurrencyImg from '../common/utilities/CurrencyImg'
 import { CustomTab, TabLists, TabPanel, TabPanels, Tabs } from '../common/utilities/Tabs'
 import useLanding from '../components/landing'
 
-const Topbar = () => {
+const Topbar = ({ isFixed }) => {
 
     const { open, setOpen, classNames, product_navigation, isLoggedIn } = useLanding()
 
-    return <ProductBar className="bg-white z-40 w-full fixed" >
+    return <ProductBar className={classNames(isFixed ? "fixed" : "", "bg-white z-40 w-full")} >
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
                 <Transition.Child
@@ -135,7 +135,7 @@ const Topbar = () => {
 
                             <div className="border-t border-gray-200 py-6 px-4">
                                 <span className="-m-2 flex items-center p-2">
-                                <CurrencyImg className="block h-auto w-5 flex-shrink-0" />
+                                    <CurrencyImg className="block h-auto w-5 flex-shrink-0" />
                                     <span className="ml-3 block text-base font-medium text-gray-900">INR</span>
                                     <span className="sr-only">, change currency</span>
                                 </span>
