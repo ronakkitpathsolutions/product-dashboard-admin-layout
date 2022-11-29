@@ -15,12 +15,13 @@ const Addresses = ({ ...props }) => {
                 </div>
                 <div className='w-full' >
                     <div className='flex 2xs:flex-col lg:flex-row flex-wrap' >
-                        <div className='p-4 2xs:w-full lg:w-1/2 cursor-pointer 2xs:h-auto xs:h-[350px] h-[500px] w-1/2 flex flex-col justify-center items-center px-4 ' >
+                        <div className='p-4 2xs:w-full mb-6 lg:w-1/2 cursor-pointer 2xs:h-auto xs:h-[350px] h-[500px] w-1/2 flex flex-col justify-center items-center px-4 ' >
                             <img className='w-[340px] p-12 border border-indigo-500 border-4 border-dashed' alt="new_address" src={newAddress} />
                             <p className='mt-4 2xs:mt-1 2xs:text-sm text-gray-900 font-medium text-xl' >Add new address</p>
                         </div>
-                        <div className='w-1/2 2xs:w-full lg:w-1/2 border border-indigo-800 px-4' >Col-2</div>
-                        {/* {addresses.map((data, index) => <AddressCard key={index} {...data} /> )} */}
+                        <div className='w-1/2 2xs:w-full h-auto lg:w-1/2 px-4' >
+                            <AddressCard className="flex flex-wrap justify-start items-center -m-4" {...{ addresses }} />
+                        </div>
                     </div>
                 </div>
             </div>

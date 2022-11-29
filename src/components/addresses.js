@@ -53,6 +53,7 @@ const useAddresses = (data) => {
 
     const addresses = [
         {
+            id: "1",
             shipping_name: 'Mayur Kapadi',
             contact_number: '9714170940',
             country: 'India',
@@ -66,6 +67,7 @@ const useAddresses = (data) => {
             isDefaultShipping: false
         },
         {
+            id: "2",
             shipping_name: 'Ronak Kapadi',
             contact_number: '9714170940',
             country: 'India',
