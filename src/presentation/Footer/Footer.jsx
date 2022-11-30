@@ -14,7 +14,7 @@ const Footer = ({isLoading, ...props }) => {
 
     return (
         <footer {...props}>
-            <div className="container px-5 py-24 mx-auto">
+            <div className="px-5 py-24 mx-auto">
                 <div className="flex flex-wrap md:text-left text-center order-first">
                     {footer_links.map(data => {
                         return (
