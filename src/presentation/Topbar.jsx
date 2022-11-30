@@ -13,9 +13,9 @@ const Topbar = ({ isFixed }) => {
 
     const { open, setOpen, classNames, product_navigation, isLoggedIn } = useLanding()
 
-    return <ProductBar className={classNames(isFixed ? "fixed" : "", "bg-white z-40 w-full")} >
+    return <ProductBar className={classNames(isFixed ? "fixed" : "", "bg-white z-[99] w-full")} >
         <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
+            <Dialog as="div" className="relative z-[99] lg:hidden" onClose={setOpen}>
                 <Transition.Child
                     as={Fragment}
                     enter="transition-opacity ease-linear duration-300"
@@ -28,7 +28,7 @@ const Topbar = ({ isFixed }) => {
                     <div className="fixed inset-0 bg-black bg-opacity-25" />
                 </Transition.Child>
 
-                <div className="fixed inset-0 z-40 flex">
+                <div className="fixed inset-0 z-[99] flex">
                     <Transition.Child
                         as={Fragment}
                         enter="transition ease-in-out duration-300 transform"

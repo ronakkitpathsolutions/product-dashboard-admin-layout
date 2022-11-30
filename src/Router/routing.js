@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { roles } from '../constant'
+import { useSelector } from 'react-redux'
 import AuthLayout from '../presentation/layout/AuthLayout'
 import PrivateLayout from '../presentation/layout/PrivateLayout'
 import PublicLayout from '../presentation/layout/PublicLayout'
@@ -8,6 +8,7 @@ import NotFound from '../presentation/NotFound'
 import { authRoutes, publicRoutes, userPrivateRoutes } from './routes'
 
 const Routing = ({ ...props }) => {
+  const user = useSelector(({ userData }) => userData?.user)
 
   return (
     <Routes {...props} >
@@ -18,7 +19,7 @@ const Routing = ({ ...props }) => {
         {authRoutes(true).map(({ id, ...otherProps }) => <Route index key={id} {...otherProps} />)}
       </Route>
       <Route path='/' element={<PrivateLayout />} >
-        {userPrivateRoutes(roles['user']).map(({ id, ...otherProps }) => <Route index key={id} {...otherProps} />)}
+        {userPrivateRoutes(user?.role).map(({ id, ...otherProps }) => <Route index key={id} {...otherProps} />)}
       </Route>
       <Route path='*' element={<NotFound />} />
     </Routes>

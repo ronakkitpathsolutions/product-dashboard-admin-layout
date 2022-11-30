@@ -1,17 +1,19 @@
 import React from 'react'
 import OfferHeading from '../common/OfferHeading'
 import Footer from './Footer/Footer'
+import Products from './product/Products'
 import Topbar from './Topbar'
 
 const Landing = ({ ...props }) => {
     return (
         <section className='relative w-full'  {...props} >
-            <div className='fixed w-full' >
+            <div className='fixed w-full z-[95]' >
                 <OfferHeading />
                 <Topbar />
             </div>
             <div className='pt-[105px]' >
-            <Footer className="text-gray-600 body-font" />
+                <Products/>
+             <Footer className="text-gray-600 body-font" />
             </div>
         </section>
     )

@@ -37,21 +37,7 @@ export const route = [
         path: "/add-to-cart/:id",
         isPrivate: true,
         element: <Cart/>,
-        access: ['user', 'admin', 'manager']
-    },
-    {
-        id: "user",
-        path: "/add-to-cart/:id",
-        isPrivate: true,
-        element: <Cart/>,
         access: ['user']
-    },
-    {
-        id: "admin",
-        path: "/add-to-cart/:id",
-        isPrivate: true,
-        element: <Cart/>,
-        access: ['admin']
     }
 ]
 

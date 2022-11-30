@@ -9,7 +9,7 @@ instance.interceptors.request.use(
     async (config) => {
         const token = localStorage.getItem("token")
         config.headers.Accept = "application/json";
-        config.headers.Authorization = token;
+        config.headers['token'] = token;
         config.headers["Content-Type"] = "application/json";
         return config
     },
