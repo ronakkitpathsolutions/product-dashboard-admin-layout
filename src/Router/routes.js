@@ -5,6 +5,7 @@ const Login = lazy(() => retry(() => import("../presentation/Login")))
 const Signup = lazy(() => retry(() => import("../presentation/Signup")))
 const ForgotPassword = lazy(() => retry(() => import("../presentation/ForgotPassword")))
 const Landing = lazy(() => retry(() => import("../presentation/Landing")))
+const Overview = lazy(() => retry(() => import("../presentation/product/Overview")))
 const Cart = lazy(() => retry(() => import("../presentation/cart/Cart")))
 
 export const route = [
@@ -13,6 +14,12 @@ export const route = [
         path: "/",
         public: true,
         element: <Landing />,
+    },
+    {
+        id: "product_overview",
+        path: "/product-overview/:id",
+        public: true,
+        element: <Overview />,
     },
     {
         id: "login_page",

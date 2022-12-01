@@ -220,6 +220,21 @@ export const constant = {
   ADD_WISHLIST: "ADD_WISHLIST"
 }
 
+export const colors = [
+  "#fcba03", "#ba03fc", "#034efc", "#03fc45", "#fc0328"
+]
+
+export const socials = [
+  {
+    id: "product_facebook",
+    type: "product_facebook"
+  },
+  {
+    id: "product_insta",
+    type: "product_insta"
+  },
+]
+
 export const socialLinks = [
   {
     id: "facebook",

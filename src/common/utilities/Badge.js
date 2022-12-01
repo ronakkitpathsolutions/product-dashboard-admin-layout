@@ -6,6 +6,8 @@ const Badge = ({count, type, label, ...props}) => {
             return <span {...props} >{label}</span>
         case 'count':
             return <span {...props} >{count ? count : null}</span>
+        case 'dot':
+            return <span {...props} />
         default: <span {...props} >{count ? count : null}</span>
     }
 }
