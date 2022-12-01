@@ -1,3 +1,4 @@
+import React from 'react'
 import {
     ArrowLeftOnRectangleIcon,
     ArrowRightIcon,
@@ -7,7 +8,6 @@ import {
     ShoppingBagIcon,
     ShoppingCartIcon
 } from '@heroicons/react/24/outline';
-import React from 'react'
 
 const Icon = ({ type, ...props }) => {
     switch (type) {

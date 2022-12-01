@@ -45,6 +45,7 @@ const useLogin = () => {
             placeholder: "●●●●●●●●●●",
             value: formData.password,
             type: "password",
+            suggested: "current-password",
             onChange: handleChange,
             errorMessage: formError.password
         }

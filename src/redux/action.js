@@ -13,3 +13,10 @@ export const setLogOutUser = (payload = {}) => {
         payload
     }
 }
+
+export const addwishlist = (payload) => {
+    return {
+        type: constant.ADD_WISHLIST,
+        payload
+    }
+}
