@@ -34,3 +34,10 @@ export const isTokenActivated = (token) => {
     const decoded = jwt_decode(token)
     return (decoded?.exp > Date.now() / 1000)
 }
+
+export const ratings = (count, total) => {
+    return {
+        rating: Array.from(Array(count).keys()),
+        outOfrating: Array.from(Array(total - count).keys())
+    }
+}
