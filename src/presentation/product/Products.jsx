@@ -2,7 +2,8 @@ import React from 'react'
 import ProductCard from '../../common/utilities/Products/ProductCard'
 import useProducts from '../../components/product/products'
 import useFetch from '../../hooks/useFetch'
-// import useFetch from '../../hooks/useFetch'
+import loading from '../../assets/load.svg'
+import ProductLoading from '../../components/product/ProductLoading'
 
 const Products = ({ ...props }) => {
 
@@ -11,7 +12,7 @@ const Products = ({ ...props }) => {
 
 
     return (
-      isLoading ? <p>Loading...</p> : <div {...props} >
+      isLoading ? <ProductLoading {...{loading}} /> : <div {...props} >
             <div className="bg-white">
                 <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                     <h2 className="text-2xl font-semibold tracking-tight text-gray-900">Our Products</h2>
