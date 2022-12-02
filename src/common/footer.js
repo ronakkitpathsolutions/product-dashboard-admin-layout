@@ -20,7 +20,7 @@ const useFooter = (otherData) => {
         {
             id: "email",
             name: "email",
-            placeholder: "Receive letest news and exclusive products.",
+            placeholder: "Receive letest exclusive products.",
             value: subscribeData.email,
             type: "email",
             onChange: handleChange,

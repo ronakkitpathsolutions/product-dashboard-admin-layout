@@ -2,7 +2,8 @@ import axios from "axios"
 import { handleLogout } from "../utils/function";
 
 const instance = axios.create({
-    baseURL: `${process.env.REACT_APP_API_SERVER_URL}`,
+    // baseURL: `${process.env.REACT_APP_API_SERVER_URL}`,
+    baseURL: "http://localhost:4000/api",
 })
 
 instance.interceptors.request.use(

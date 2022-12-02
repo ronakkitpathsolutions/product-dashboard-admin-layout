@@ -7,7 +7,7 @@ const intialFetch = {
     error: null
 }
 
-const useFetch = (url = "/", config = {}) => {
+const useFetch = (url = "/", method="get", config = {}) => {
     const [fetch, setFetch] = useState(intialFetch)
     const { data, isLoading, error } = fetch
 
@@ -21,7 +21,7 @@ const useFetch = (url = "/", config = {}) => {
     const handleFetch = async() => {
         setFetch({ ...intialFetch, isLoading: true })
         try {
-            const response = await axios.get(url, config)
+            const response = await axios[method](url, config)
             if(response.data){
                 setFetch({ ...intialFetch, isLoading: false, data: response.data })
             }
