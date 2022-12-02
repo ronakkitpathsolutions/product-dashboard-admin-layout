@@ -6,10 +6,9 @@ import useFetch from '../../hooks/useFetch'
 
 const Products = ({ ...props }) => {
 
-    const { products, addToWishList } = useProducts()
-    const { data, isLoading, error } = useFetch('/all-products', "get")
+    const { addToWishList } = useProducts()
+    const { data, isLoading } = useFetch('/all-products', "get")
 
-    console.log('fetch_data', {data, isLoading, error})
 
     return (
       isLoading ? <p>Loading...</p> : <div {...props} >
