@@ -5,12 +5,14 @@ import useFetch from '../../hooks/useFetch'
 import loading from '../../assets/load.svg'
 import ProductLoading from '../../components/product/ProductLoading'
 
-const Products = ({ ...props }) => {
+const 
 
+
+
+
+Products = ({ ...props }) => {
     const { addToWishList } = useProducts()
     const { data, isLoading } = useFetch('/all-products', "get")
-
-
     return (
       isLoading ? <ProductLoading {...{loading}} /> : <div {...props} >
             <div className="bg-white">

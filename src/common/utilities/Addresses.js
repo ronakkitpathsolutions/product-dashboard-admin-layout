@@ -22,7 +22,7 @@ const Addresses = ({ ...props }) => {
                             <p className='mt-4 2xs:mt-1 2xs:text-sm text-gray-900 font-medium text-xl' >Add new address</p>
                         </div>
                         <div className='w-1/2 2xs:w-full h-auto lg:w-1/2 px-4' >
-                            <AddressCard className="flex flex-wrap justify-start items-center -m-4" {...{ addresses }} />
+                            <AddressCard className="flex flex-col flex-wrap justify-start items-center -m-4" {...{ addresses }} />
                         </div>
                     </div>
                 </div>

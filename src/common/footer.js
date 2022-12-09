@@ -20,12 +20,11 @@ const useFooter = (otherData) => {
         {
             id: "email",
             name: "email",
-            placeholder: "Receive letest exclusive products.",
+            placeholder: "user@xyz.com",
             value: subscribeData.email,
             type: "email",
-            onChange: handleChange,
-            errorMessage: error.email
-        },
+            onChange: handleChange
+        }
     ]
 
     const handleSubmit = e => {
@@ -49,7 +48,7 @@ const useFooter = (otherData) => {
         }
     }
 
-  return { handleSubmit, formData }
+  return { handleSubmit, formData, error }
 }
 
 export default useFooter

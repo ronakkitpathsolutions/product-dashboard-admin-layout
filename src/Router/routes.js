@@ -1,4 +1,5 @@
 import { lazy } from "react"
+import Wishlists from "../presentation/wishlists/Wishlists"
 import { retry } from "../utils/function"
 
 const Login = lazy(() => retry(() => import("../presentation/Login")))
@@ -45,13 +46,17 @@ export const route = [
         isPrivate: true,
         element: <Cart/>,
         access: ['user']
+    },
+    {
+        id: "user_cart_page",
+        path: "/wish-lists",
+        isPrivate: true,
+        element: <Wishlists/>,
+        access: ['user']
     }
 ]
 
 export const isAccessableRoutes = (data, role) => data.map(value => value === role).some(val => val)
-
 export const publicRoutes = isPublic => route.filter(data => data.public === isPublic)
-
 export const authRoutes = isAuth => route.filter(data => data.isAuth === isAuth)
-
 export const userPrivateRoutes = (role) => route.filter((data) => data.isPrivate ? isAccessableRoutes(data.access, role) : null)

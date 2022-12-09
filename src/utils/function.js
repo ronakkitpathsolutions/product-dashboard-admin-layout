@@ -41,3 +41,17 @@ export const ratings = (count, total) => {
         outOfrating: Array.from(Array(total - count).keys())
     }
 }
+
+export const filteredArray = (mainArray, compareArray, key) => {
+    const filteredArray = []
+    compareArray.forEach((value) => {
+        if(mainArray.map(val => {return val[key]}).includes(value)){
+            const index = mainArray.findIndex(data => data[key] === value)
+            if(index !== -1){
+                const obj = mainArray[index]
+                filteredArray.push(obj)
+            }
+        }
+    })
+    return filteredArray
+}
