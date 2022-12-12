@@ -7,8 +7,8 @@ import ProductLoading from '../../components/product/ProductLoading'
 import useWishlists from '../../components/wishlists/wishlists'
 
 const Wishlists = ({ ...props }) => {
-    const { addToWishList } = useProducts()
-    const { data, isLoading } = useWishlists()
+    const { addToWishList, user_id } = useProducts()
+    const { data, isLoading } = useWishlists(user_id)
     return (
         <div className={classNames('pt-[65px]')} {...props} >
             {isLoading ? <ProductLoading {...{ loading }} /> : <div className="bg-white">

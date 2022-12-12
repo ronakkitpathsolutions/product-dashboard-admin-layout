@@ -5,7 +5,7 @@ const initialState = {
     products: []
 }
 
-export const productReducer  = (state = initialState, action) => {
+export const productReducer = (state = initialState, action) => {
     const { payload, type } = action
     switch (type) {
         case constant.ADD_WISHLIST:

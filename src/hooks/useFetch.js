@@ -7,7 +7,7 @@ const intialFetch = {
     error: null
 }
 
-const useFetch = (url, method="get", config = {}, isHold) => {
+const useFetch = (url, method = "get", config = {}, isHold = false) => {
     const [fetch, setFetch] = useState(intialFetch)
     const { data, isLoading, error } = fetch
 
@@ -16,13 +16,13 @@ const useFetch = (url, method="get", config = {}, isHold) => {
         // eslint-disable-next-line
     }, [isHold])
 
-    const refetch = async() => await handleFetch()
+    const refetch = async () => await handleFetch()
 
-    const handleFetch = async() => {
+    const handleFetch = async () => {
         setFetch({ ...intialFetch, isLoading: true })
         try {
             const response = await axios[method](url, config)
-            if(response.data){
+            if (response.data) {
                 setFetch({ ...intialFetch, isLoading: false, data: response.data })
             }
         } catch (error) {
@@ -33,7 +33,7 @@ const useFetch = (url, method="get", config = {}, isHold) => {
         }
     }
 
-  return { data, isLoading, error, refetch }
+    return { data, isLoading, error, refetch }
 }
 
 export default useFetch
