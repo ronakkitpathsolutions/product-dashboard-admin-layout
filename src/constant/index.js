@@ -217,7 +217,9 @@ export const constant = {
   TOKEN: "TOKEN",
   IS_LOGGED_IN: "IS_LOGGED_IN",
   LOG_OUT: "LOG_OUT",
-  ADD_WISHLIST: "ADD_WISHLIST"
+  ADD_WISHLIST: "ADD_WISHLIST",
+  ALL_WISHLISTS: "ALL_WISHLISTS",
+  ALL_PRODUCTS: "ALL_PRODUCTS"
 }
 
 export const colors = [

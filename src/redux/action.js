@@ -20,3 +20,15 @@ export const addwishlist = (payload) => {
         payload
     }
 }
+export const addToAllWishlists = (payload) => {
+    return {
+        type: constant.ALL_WISHLISTS,
+        payload
+    }
+}
+export const allProducts = (payload) => {
+    return {
+        type: constant.ALL_PRODUCTS,
+        payload
+    }
+}

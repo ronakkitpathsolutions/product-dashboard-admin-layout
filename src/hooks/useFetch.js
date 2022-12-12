@@ -7,14 +7,14 @@ const intialFetch = {
     error: null
 }
 
-const useFetch = (url = "/", method="get", config = {}) => {
+const useFetch = (url, method="get", config = {}, isHold) => {
     const [fetch, setFetch] = useState(intialFetch)
     const { data, isLoading, error } = fetch
 
     useEffect(() => {
-        refetch()
+        !isHold && refetch()
         // eslint-disable-next-line
-    }, [])
+    }, [isHold])
 
     const refetch = async() => await handleFetch()
 

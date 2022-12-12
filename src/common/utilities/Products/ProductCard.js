@@ -12,7 +12,7 @@ const ProductCard = ({ _id, product_image, category, product_name, price, handle
                 <span className="bg-green-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">Popular</span>
                 <img src={product_image} alt={_id} className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
             </div>
-            <div className='mx-2' >
+            <div>
                 <div className="mt-4 flex justify-between">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{category}</h3>
                     <div className='flex items-center justify-evenly' >
