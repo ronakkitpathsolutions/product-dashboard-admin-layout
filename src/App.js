@@ -5,6 +5,8 @@ import { setLoggedUser, setLogOutUser } from './redux/action';
 import Routing from './Router/routing';
 import { decodeToken, isTokenActivated } from './utils/function';
 import { clearLocalStorage, getDataFromLocal } from './utils/localstorage';
+import "swiper/css";
+import "swiper/css/effect-cards";
 
 const App = () => {
 

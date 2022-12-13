@@ -1,3 +1,10 @@
+import slider1 from '../assets/slider/slider1.jpg'
+import slider2 from '../assets/slider/slider2.jpg'
+import slider3 from '../assets/slider/slider3.jpg'
+import slider4 from '../assets/slider/slider4.jpg'
+import slider5 from '../assets/slider/slider5.jpg'
+import slider6 from '../assets/slider/slider6.jpg'
+
 export const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
 
 export const roles = {
@@ -319,5 +326,32 @@ export const footer_links = [
         to: "/privacy-policy"
       }
     ]
+  }
+]
+
+export const sliderData = [
+  {
+    id: "slider_1",
+    image: slider1
+  },
+  {
+    id: "slider_2",
+    image: slider2
+  },
+  {
+    id: "slider_3",
+    image: slider3
+  },
+  {
+    id: "slider_4",
+    image: slider4
+  },
+  {
+    id: "slider_5",
+    image: slider5
+  },
+  {
+    id: "slider_6",
+    image: slider6
   }
 ]

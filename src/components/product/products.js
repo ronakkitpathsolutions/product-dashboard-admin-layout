@@ -3,13 +3,11 @@ import { addProductToWishlists, deleteProductFromWishlists } from '../../apis/wi
 import useHistory from '../../hooks/useHistory'
 import { addwishlist } from '../../redux/action'
 
-const useProducts = (otherData) => {
+const useProducts = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const wishlists = useSelector(({ productReducer }) => productReducer.wishlists)
   const user_id = useSelector(({ userData }) => userData?.user?.user_id)
-
-  console.log('wishlists', wishlists)
 
   const handleRemoveWishList = async (product_id) => {
     try {
@@ -34,7 +32,7 @@ const useProducts = (otherData) => {
   }
 
   const addToWishList = async (id) => {
-    wishlists[id] ? await handleRemoveWishList(id) : await handleAddWishList(id)
+    user_id ? wishlists[id] ? await handleRemoveWishList(id) : await handleAddWishList(id) : dispatch(addwishlist({id, checked: wishlists[id] ? !wishlists[id]: !!id}))
   }
   const productOverview = (id) => history(`/product-overview/${id}`)
 
