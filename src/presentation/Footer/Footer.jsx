@@ -14,8 +14,8 @@ const Footer = ({isLoading, ...props }) => {
 
     return (
         <footer {...props}>
-            <div className="px-5 py-24 mx-auto lg:mx-4 xl:mx-16">
-                <div className="flex flex-wrap md:text-left text-center order-first">
+            <div className="2xs:px-4 xs:px-12 sm:px-16 py-24 mx-auto lg:mx-4 xl:mx-16">
+                <div className="flex flex-wrap text-left order-first">
                     {footer_links.map(data => {
                         return (
                             <div key={data?.id} className="lg:w-1/4 md:w-1/2 w-full px-4">
@@ -29,10 +29,10 @@ const Footer = ({isLoading, ...props }) => {
                         )
                     })}
                     <div className="lg:w-1/4 md:w-1/2 w-full 2xs:px-0 md-px-0 xl:px-4">
-                        <h2 className="title-font font-bold text-[1rem] text-gray-700 tracking-widest mb-3">SUBSCRIBE</h2>
+                        <h2 className="title-font font-bold text-[1rem] text-gray-700 text-left tracking-widest mb-3">SUBSCRIBE</h2>
                         <div className='w-auto md:w-[320px] lg:w-[260px] xl:w-[320px]' >
-                            {formData.map(({ id, ...otherData }) => <Input inputClass="md:w-full 2xs:w-full xs:w-[320px] bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out items-center mx-auto" className="mb-3 md:mb-4 lg:mb-4 xl:mb-4 2xl:mb-4 block xs:flex md:block flex-col 2xs:items-start sm:items-center text-center" key={id} {...otherData} />)}
-                            <Button handleClick={handleSubmit} disabled={error['email'] || isLoading} className="2xs:mx-auto md:ml-0 flex justify-center items-center text-white w-[140px] bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                            {formData.map(({ id, ...otherData }) => <Input inputClass="md:w-full 2xs:w-full xs:w-[320px] bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out items-start" className="mb-3 md:mb-4 lg:mb-4 xl:mb-4 2xl:mb-4 block xs:flex md:block flex-col 2xs:items-start sm:items-start text-left" key={id} {...otherData} />)}
+                            <Button handleClick={handleSubmit} disabled={error['email'] || isLoading} className="md:ml-0 flex justify-start items-start text-white w-[140px] bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                                 {isLoading ? "Loading" : "Subscribe"}{isLoading ? <Spinner spinnerStyle="ml-1 -mt-[3px] w-4 h-4" /> : null}
                             </Button>
                         </div>
