@@ -12,7 +12,7 @@ const useOverview = (otherData) => {
         return colors.map(val => {return{name: val, id: val}})
     },[])
 
-    return { productData, setProductData, socials, availableColors, id: product_id }
+    return { productData, setProductData, socials, availableColors, id: product_id}
 }
 
 export default useOverview
