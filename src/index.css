@@ -16,6 +16,6 @@ code {
     monospace;
 }
 
-body::-webkit-scrollbar, .collapse_menu::-webkit-scrollbar{
-  display: none;
+body::-webkit-scrollbar, .collapse_menu::-webkit-scrollbar, .hide-scroll::-webkit-scrollbar{
+  display: none!important;
 }
