@@ -37,7 +37,7 @@ const ProfileSection = ({ links, ...props }) => {
                                         <Icon type={iconType} className="mr-2 w-6 h-6 .text-gray-700" />
                                         <span className='text-[16px] .text-gray-700' >
                                             {name}
-                                            { isShowNotification ?  <Badge className="absolute w-2 h-2 text-[12px] right-[10px] top-[2px] text-center font-bold bg-red-600 text-white rounded-full" {...{type: 'dot'}} /> : null }
+                                            { isShowNotification ?  <Badge className="absolute w-2 h-2 text-[12px] right-[4px] top-[0px] text-center font-bold bg-red-600 text-white rounded-full" {...{type: 'dot'}} /> : null }
                                         </span>
                                     </div>
                                 </NavLink> : <div {...{ onClick }} className={classNames(active ? 'bg-gray-100' : '', 'flex justify-start items-center cursor-pointer px-4 py-2 text-sm text-gray-700')} >

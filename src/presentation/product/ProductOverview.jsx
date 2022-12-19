@@ -1,6 +1,7 @@
 import Button from "../../common/Forms/Button";
 import Selector from "../../common/Forms/Selector";
 import Icon from "../../common/Icon";
+import Magnify from "../../common/Magnify";
 import ProductImages from "../../common/utilities/Products/ProductImages";
 import ProductSocial from "../../common/utilities/Products/ProductSocial";
 import Reviews from "../../common/utilities/Products/Reviews";
@@ -9,6 +10,7 @@ import useProducts from "../../components/product/products";
 import useWishlists from "../../components/wishlists/wishlists";
 import { socials } from "../../constant";
 import { classNames, convetRuppesFormat, ratings } from "../../utils/function";
+import ProductReview from "../review/ProductReview";
 
 const ProductOverview = ({id, data, ...props}) => {
     const { wishlists, addToWishList, user_id } = useProducts()
@@ -17,7 +19,7 @@ const ProductOverview = ({id, data, ...props}) => {
 
     return (
         <div {...props}>
-            <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
+            <div className="flex justify-center items-center lg:flex-row-reverse flex-col gap-8">
                 <div className="  w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
                     <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600">Home / {data?.data?.category}</p>
                     <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4">{data?.data?.product_name}</h2>
@@ -26,7 +28,7 @@ const ProductOverview = ({id, data, ...props}) => {
                                 <Icon className="w-6 h-6 text-bold text-red-500" type={wishlists[id] ? "heart_solid" : "heart"} />
                             </Button>
                         <div className=" flex flex-row space-x-3">
-                            <Reviews {...{ ...ratings(5, 5) }} />
+                            <Reviews {...{ ...ratings(4, 5), svgClassName: "w-4 h-4"}} />
                             <ProductSocial {...{ socials }} className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s" />
                         </div>
                     </div>
@@ -62,15 +64,15 @@ const ProductOverview = ({id, data, ...props}) => {
                     </div>
                 </div>
 
-                <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4">
+                <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row-reverse flex-col lg:gap-8 sm:gap-6 gap-4">
                     <div className=" w-full lg:w-8/12 flex justify-center items-start">
-                        <img src={showImage ? data?.data?.products_images[showImage - 1]?.src : data?.data?.product_image} alt="Wooden Chair Previw" />
+                        <Magnify alt="Wooden Chair Previw" image={showImage ? data?.data?.products_images[showImage - 1]?.src : data?.data?.product_image} />
                     </div>
                     <ProductImages {...{images: data?.data?.products_images || [], mainImage: data?.data?.product_image, handleShowCase}} className={classNames(data?.data?.products_images?.length < 3 ? "flex 2xs:flex-wrap lg:flex-nowrap lg:flex-col": "grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-4 gap-6","w-full lg:w-1/5 lg:h-[650px] lg:overflow-auto scrollbar-hide")} />
                 </div>
             </div>
             <div className="flex  justify-center items-center w-full">
-                
+                <ProductReview className="text-gray-600 body-font" />
             </div>
         </div>
     );
