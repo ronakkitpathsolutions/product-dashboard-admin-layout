@@ -1,5 +1,6 @@
 import React from 'react'
 import useProducts from '../../../components/product/products'
+import { convetRuppesFormat } from '../../../utils/function'
 import Icon from '../../Icon'
 
 const ProductCard = ({ _id, product_image, category, product_name, price, handleClick, ...props }) => {
@@ -21,7 +22,7 @@ const ProductCard = ({ _id, product_image, category, product_name, price, handle
                 </div>
                 <div className='flex justify-between' >
                     <h2 className="text-gray-900 title-font text-md font-medium">{product_name}</h2>
-                    <p className="mt-1 font-medium">₹{price}</p>
+                    <p className="mt-1 font-medium">₹{convetRuppesFormat(price || 1)}</p>
                 </div>
             </div>
         </div>

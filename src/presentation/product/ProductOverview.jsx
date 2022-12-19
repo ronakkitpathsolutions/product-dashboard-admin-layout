@@ -1,4 +1,5 @@
 import Button from "../../common/Forms/Button";
+import Selector from "../../common/Forms/Selector";
 import Icon from "../../common/Icon";
 import ProductImages from "../../common/utilities/Products/ProductImages";
 import ProductSocial from "../../common/utilities/Products/ProductSocial";
@@ -11,7 +12,7 @@ import { classNames, convetRuppesFormat, ratings } from "../../utils/function";
 
 const ProductOverview = ({id, data, ...props}) => {
     const { wishlists, addToWishList, user_id } = useProducts()
-    const {count, handleQuantity, showImage, handleShowCase} = useProductOverview()
+    const {count, handleQuantity, showImage, handleShowCase, configData} = useProductOverview()
     useWishlists(user_id)
 
     return (
@@ -32,14 +33,14 @@ const ProductOverview = ({id, data, ...props}) => {
                     <p className=" font-normal text-base leading-6 text-gray-600 mt-7">{data?.data?.product_description}</p>
                     <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">₹{convetRuppesFormat(data?.data?.price * count || 1)}</p>
                     <div className="lg:mt-11 mt-10">
-                        <div className="flex flex-row justify-between items-center">
+                        <div className="flex flex-row justify-between items-center mb-4">
                             <p className=" font-medium text-base leading-4 text-gray-600">Select quantity</p>
                             <div className="flex">
-                                <span onClick={() => handleQuantity(count, 'remove')} className="rounded rounded-r-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 bg-indigo-500 text-[22px] text-white cursor-pointer border border-indigo-500 w-9 h-9 flex items-center justify-center pb-1">
+                                <span onClick={() => handleQuantity(count, 'remove')} className="rounded rounded-r-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 bg-indigo-500 text-[22px] text-white cursor-pointer border border-indigo-500 w-9 h-9 flex items-center justify-center">
                                     -
                                 </span>
-                                <input id="counter" aria-label="input" className="h-[2.28rem] border border-gray-300 h-full text-center w-14 pb-1" type="text" value={count} onChange={(e) => e.target.value} />
-                                <span onClick={() => handleQuantity(count, 'add')} className="rounded rounded-l-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 bg-indigo-500 text-[22px] text-white cursor-pointer border border-indigo-500 w-9 h-9 flex items-center justify-center pb-1 ">
+                                <input id="counter" aria-label="input" className="h-[2.28rem] border border-gray-300 h-full text-center w-14" type="text" value={count} onChange={(e) => e.target.value} />
+                                <span onClick={() => handleQuantity(count, 'add')} className="rounded rounded-l-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 bg-indigo-500 text-[22px] text-white cursor-pointer border border-indigo-500 w-9 h-9 flex items-center justify-center">
                                     +
                                 </span>
                             </div>
@@ -47,21 +48,25 @@ const ProductOverview = ({id, data, ...props}) => {
                         <hr className=" bg-gray-200 w-full my-2" />
                         <div className=" flex flex-row justify-between items-center mt-4">
                             <p className="font-medium text-base leading-4 text-gray-600">Available Colours</p>
-                            <p></p>
+                            <Selector menuList={data?.data?.colors?.map(data => {return{value:data, name:data}})} className="w-auto" {...configData} />
                         </div>
                         <hr className=" bg-gray-200 w-full mt-4" />
                     </div>
-
-                    <Button className="rounded float-right text-bold text-white py-2 px-4 bg-indigo-500 p-0 border-0 inline-flex items-center justify-center text-gray-500 mt-2" >
+                    <div className="flex justify-between items-center" >
+                    <Button className="rounded text-bold text-white py-2 px-4 bg-yellow-500 p-0 border-0 inline-flex items-center justify-center text-gray-500 mt-2" >
+                        Buy now <Icon className="ml-2 w-5 h-5" type="tag_solid" />
+                    </Button>
+                    <Button className="rounded text-bold text-white py-2 px-4 bg-indigo-500 p-0 border-0 inline-flex items-center justify-center text-gray-500 mt-2" >
                         Add to cart <Icon className="ml-2 w-6 h-6" type="cart" />
                     </Button>
+                    </div>
                 </div>
 
                 <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4">
                     <div className=" w-full lg:w-8/12 flex justify-center items-start">
                         <img src={showImage ? data?.data?.products_images[showImage - 1]?.src : data?.data?.product_image} alt="Wooden Chair Previw" />
                     </div>
-                    <ProductImages {...{images: data?.data?.products_images || [], mainImage: data?.data?.product_image, handleShowCase}} className={classNames(data?.data?.products_images?.length < 3 ? "flex 2xs:flex-wrap lg:flex-nowrap lg:flex-col": "grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-4 gap-6","w-full lg:w-1/5 lg:h-[650px] lg:overflow-auto")} />
+                    <ProductImages {...{images: data?.data?.products_images || [], mainImage: data?.data?.product_image, handleShowCase}} className={classNames(data?.data?.products_images?.length < 3 ? "flex 2xs:flex-wrap lg:flex-nowrap lg:flex-col": "grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-4 gap-6","w-full lg:w-1/5 lg:h-[650px] lg:overflow-auto scrollbar-hide")} />
                 </div>
             </div>
             <div className="flex  justify-center items-center w-full">

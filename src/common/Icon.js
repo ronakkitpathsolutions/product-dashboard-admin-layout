@@ -6,9 +6,10 @@ import {
     HeartIcon,
     MapPinIcon,
     ShoppingBagIcon,
-    ShoppingCartIcon
+    ShoppingCartIcon,
 } from '@heroicons/react/24/outline';
 import HeartIconSolid  from '@heroicons/react/24/solid/HeartIcon'
+import { TagIcon } from '@heroicons/react/24/solid';
 
 const Icon = ({ type, ...props }) => {
     switch (type) {
@@ -20,6 +21,7 @@ const Icon = ({ type, ...props }) => {
         case 'location': return <MapPinIcon {...props} />
         case 'money': return <CreditCardIcon {...props} />
         case 'right_arrow': return <ArrowRightIcon {...props} />
+        case 'tag_solid': return <TagIcon {...props} />
         default: return null
     }    
 }
