@@ -2,7 +2,8 @@ import axios from "axios"
 import { handleLogout } from "../utils/function";
 
 const instance = axios.create({
-    baseURL: `${process.env.REACT_APP_API_SERVER_URL}`
+    baseURL: "https://product-back-end.vercel.app/api"
+    // baseURL: `${process.env.REACT_APP_API_SERVER_URL}`
 })
 
 instance.interceptors.request.use(

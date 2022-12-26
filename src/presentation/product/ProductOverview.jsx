@@ -14,7 +14,7 @@ import ProductReview from "../review/ProductReview";
 
 const ProductOverview = ({id, data, ...props}) => {
     const { wishlists, addToWishList, user_id } = useProducts()
-    const {count, handleQuantity, showImage, handleShowCase, configData} = useProductOverview()
+    const {count, handleQuantity, reviews, isLoading, showImage, handleShowCase, configData} = useProductOverview(id)
     useWishlists(user_id)
 
     return (
@@ -72,7 +72,7 @@ const ProductOverview = ({id, data, ...props}) => {
                 </div>
             </div>
             <div className="flex  justify-start items-start w-full">
-                <ProductReview className="text-gray-600 body-font" />
+                <ProductReview {...{reviews, isLoading}} className="text-gray-600 body-font" />
             </div>
         </div>
     );

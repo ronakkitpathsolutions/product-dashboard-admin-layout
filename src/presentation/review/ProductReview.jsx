@@ -1,71 +1,37 @@
 import React from 'react'
+import SVG from '../../common/svg/svg'
 import Reviews from '../../common/utilities/Products/Reviews'
-import { ratings } from '../../utils/function'
+import { classNames, ratings } from '../../utils/function'
 
-const ProductReview = ({ ...props }) => {
+const ProductReview = ({ reviews, isLoading, ...props }) => {
     return (
         <section {...props}>
-            <div class="container mt-8 px-5 py-24 mr-auto">
-                <div class="flex flex-col w-full 2xs:mb-16 md:mb-12">
-                    <h1 class="text-[1.2rem] lg:text-2xl font-medium text-left title-font mb-1 text-gray-900 tracking-widest">Product Reviews</h1>
-                    <div className='flex flex-col items-start justify-start'>
+            <div className="2xs:w-full lg:w-1/2 container mt-8 px-5 py-24 mr-auto">
+                <div className="flex flex-col w-full 2xs:mb-16 md:mb-12">
+                    <h1 className="text-[1.2rem] lg:text-2xl font-medium text-left title-font mb-1 text-gray-900 tracking-widest">Product Reviews</h1>
+                    <div className='flex mt-8 items-center justify-start'>
                         <p className='text-[30px] font-semibold ml-2'>4.5</p>
-                        <Reviews isCustomHeadline className="mt-2" {...{ ...ratings(4, 5), svgClassName: "w-6 h-6" }} />
+                        <SVG {...{ svgClassName: classNames('ml-1 w-7 h-7 text-indigo-500') }} type="solid_star" />
                     </div>
+                    <p>( 1,068 ratings and 56 reviews )</p>
                 </div>
-                <div class="flex flex-wrap -m-4">
-                    <div class="p-4 lg:w-1/2">
-                        <div class="h-full flex sm:flex-row flex-col justify-start text-left">
-                            <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200" />
-                            <div class="flex-grow sm:pl-8">
-                                <h2 class="title-font font-medium text-lg text-gray-900">Holden Caulfield</h2>
-                                <h3 class="text-gray-500 mb-3">UI Developer</h3>
-                                <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                                <span class="inline-flex">
-                                    <Reviews {...{ ...ratings(4, 5), svgClassName: "w-4 h-4" }} />
-                                </span>
+                <div className="flex flex-wrap -m-4">
+                    {
+                        reviews?.map(({ _id, review, username, profile, ...otherData }) => (
+                            <div key={_id} className="p-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
+                                <div className="inline-flex items-center">
+                                    <img alt="blog" src={profile || "https://dummyimage.com/104x104"} className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
+                                    <span className="flex-grow flex flex-col pl-4">
+                                        <span className="title-font font-medium text-gray-900">{username}</span>
+                                        <span className="text-gray-400 text-xs tracking-widest mt-0.5">{review?.comment}</span>
+                                        <span className="inline-flex mt-[4px]">
+                                            <Reviews isCustomHeadline {...{ ...ratings(review?.rating || 0, 5), svgClassName: "w-4 h-4" }} />
+                                        </span>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="p-4 lg:w-1/2">
-                        <div class="h-full flex sm:flex-row flex-col justify-start text-left">
-                            <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/201x201" />
-                            <div class="flex-grow sm:pl-8">
-                                <h2 class="title-font font-medium text-lg text-gray-900">Alper Kamu</h2>
-                                <h3 class="text-gray-500 mb-3">Designer</h3>
-                                <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                                <span class="inline-flex">
-                                    <Reviews {...{ ...ratings(5, 5), svgClassName: "w-4 h-4" }} />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 lg:w-1/2">
-                        <div class="h-full flex sm:flex-row flex-col justify-start text-left">
-                            <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/204x204" />
-                            <div class="flex-grow sm:pl-8">
-                                <h2 class="title-font font-medium text-lg text-gray-900">Atticus Finch</h2>
-                                <h3 class="text-gray-500 mb-3">UI Developer</h3>
-                                <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                                <span class="inline-flex">
-                                    <Reviews {...{ ...ratings(4, 5), svgClassName: "w-4 h-4" }} />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 lg:w-1/2">
-                        <div class="h-full flex sm:flex-row flex-col justify-start text-left">
-                            <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206" />
-                            <div class="flex-grow sm:pl-8">
-                                <h2 class="title-font font-medium text-lg text-gray-900">Henry Letham</h2>
-                                <h3 class="text-gray-500 mb-3">Designer</h3>
-                                <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                                <span class="inline-flex">
-                                    <Reviews {...{ ...ratings(4, 5), svgClassName: "w-4 h-4" }} />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>
