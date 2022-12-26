@@ -71,7 +71,7 @@ const ProductOverview = ({id, data, ...props}) => {
                     <ProductImages {...{images: data?.data?.products_images || [], mainImage: data?.data?.product_image, handleShowCase}} className={classNames(data?.data?.products_images?.length < 3 ? "flex 2xs:flex-wrap lg:flex-nowrap lg:flex-col": "grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-4 gap-6","w-full lg:w-1/5 lg:h-[650px] lg:overflow-auto scrollbar-hide")} />
                 </div>
             </div>
-            <div className="flex  justify-center items-center w-full">
+            <div className="flex  justify-start items-start w-full">
                 <ProductReview className="text-gray-600 body-font" />
             </div>
         </div>

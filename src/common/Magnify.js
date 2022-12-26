@@ -15,7 +15,11 @@ const Magnify = ({ image, ...props }) => {
                         largeImage: {
                             src: image,
                             width: 1200,
-                            height: 1800
+                            height: 2400,
+                        },
+                        enlargedImageContainerDimensions: {
+                            width: '100%',
+                            height: '100%'
                         },
                         isHintEnabled: true,
                         shouldHideHintAfterFirstActivation: false
