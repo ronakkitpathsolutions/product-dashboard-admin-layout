@@ -1,6 +1,7 @@
 import React from 'react'
 import useHistory from '../../hooks/useHistory'
 import Button from '../Forms/Button'
+import { convetRuppesFormat } from '../../utils/function'
 
 const TotalAmount = ({sub_total, ...props}) => {
 
@@ -10,7 +11,7 @@ const TotalAmount = ({sub_total, ...props}) => {
         <div {...props}>
             <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p className='text-2xl' >$ {sub_total}</p>
+                <p className='text-2xl' >₹{convetRuppesFormat(sub_total)}</p>
             </div>
             <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
             <div className="mt-6">

@@ -4,10 +4,10 @@ import List from './List'
 import TotalAmount from './TotalAmount'
 import Addresses from './Addresses'
 
-const CheckoutSteps = ({ name, ...props }) => {
+const CheckoutSteps = ({ name, products, ...props }) => {
     switch (name) {
         case 'order_details':
-            return <OrderDetails {...props} />
+            return <OrderDetails {...{ products }} {...props} />
         case 'address':
             return <Addresses className="text-gray-400 body-font" />
         case 'payment':
@@ -19,6 +19,12 @@ const CheckoutSteps = ({ name, ...props }) => {
 export default CheckoutSteps
 
 const OrderDetails = ({products}) => {
+
+    const sub_total = products?.reduce((accum, current) => {
+        console.log('accum :>> ', accum);
+        return accum + (current?.price * current?.qty)
+    }, 0)
+
     return (
         <>
             <div className="flow-root">
@@ -26,7 +32,7 @@ const OrderDetails = ({products}) => {
                     {products.map(({ id, ...data }) => <Item className="flex py-6 px-1 mx-auto xs:w-[95%] sm:w-[460px] sm:mx-auto md:w-[70%] w-full lg:mx-auto lg:w-[500px]" key={id} {...data} />)}
                 </List>
             </div>
-            <TotalAmount className="border-t border-indigo-500 py-6 lg:px-0 mx-auto xs:w-[95%] sm:w-[460px] sm:mx-auto md:w-[70%] w-full lg:mx-auto lg:w-[500px]" {...{ sub_total: 200.00 }} />
+            <TotalAmount className="border-t border-indigo-500 py-6 lg:px-0 mx-auto xs:w-[95%] sm:w-[460px] sm:mx-auto md:w-[70%] w-full lg:mx-auto lg:w-[500px]" {...{ sub_total }} />
         </>
     )
 }

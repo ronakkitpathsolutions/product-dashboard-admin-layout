@@ -32,3 +32,32 @@ export const allProducts = (payload) => {
         payload
     }
 }
+
+export const fetchAllCartItems = (payload) => {
+    console.log('payload :>> ', payload);
+    return { 
+        type: constant.CART_ITEMS, 
+        payload
+    }
+}
+
+export const deleteItemInCart = (payload) => {
+    return { 
+        type: constant.DELETE_CART_ITEM, 
+        payload
+    }
+}
+
+export const updateItemInCart = (payload) => {
+    return { 
+        type: constant.UPDATE_CART_ITEM, 
+        payload
+    }
+}
+
+export const addItemInCart = (payload) => {
+    return { 
+        type: constant.ADD_CART_ITEM, 
+        payload
+    }
+}

@@ -56,7 +56,7 @@ export const filteredArray = (mainArray, compareArray, key) => {
     return filteredArray
 }
 
-export const convetRuppesFormat = value =>  value ? value?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '00,000'
+export const convetRuppesFormat = value =>  value ? Math.round(value)?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '00,000'
 
 export const addDataInPositions = (data, value) => {
     if(data?.length){
