@@ -20,7 +20,7 @@ const Wishlists = ({ ...props }) => {
                         <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                             {data?.wish_lists?.map(({ _id, ...value }) => <ProductCard handleClick={addToWishList} key={_id} {...{ _id }} {...value} className="group cursor-pointer relative" />)}
                         </div>
-                    </> : <EmptyCart className="text-gray-600 body-font" />}
+                    </> : <EmptyCart {...{headline:"Your Wishlist is empty!", message:"seems like you don't have wishes here. Make a wish!"}} className="text-gray-600 body-font" />}
                 </div>
             </div>}
         { !isLoading ? <Footer className="text-gray-600 body-font bg-gray-100" /> : null}

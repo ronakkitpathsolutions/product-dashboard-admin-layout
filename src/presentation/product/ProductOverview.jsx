@@ -1,7 +1,6 @@
 import Button from "../../common/Forms/Button";
 import Selector from "../../common/Forms/Selector";
 import Icon from "../../common/Icon";
-import Magnify from "../../common/Magnify";
 import ProductImages from "../../common/utilities/Products/ProductImages";
 import ProductSocial from "../../common/utilities/Products/ProductSocial";
 import Reviews from "../../common/utilities/Products/Reviews";
@@ -66,13 +65,13 @@ const ProductOverview = ({id, data, ...props}) => {
 
                 <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row-reverse flex-col lg:gap-8 sm:gap-6 gap-4">
                     <div className=" w-full lg:w-8/12 flex justify-center items-start">
-                        <Magnify alt="Wooden Chair Previw" image={showImage ? data?.data?.products_images[showImage - 1]?.src : data?.data?.product_image} />
+                        <img alt="Wooden Chair Previw" src={showImage ? data?.data?.products_images[showImage - 1]?.src : data?.data?.product_image} />
                     </div>
                     <ProductImages {...{images: data?.data?.products_images || [], mainImage: data?.data?.product_image, handleShowCase}} className={classNames(data?.data?.products_images?.length < 3 ? "flex 2xs:flex-wrap lg:flex-nowrap lg:flex-col": "grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-4 gap-6","w-full lg:w-1/5 lg:h-[650px] lg:overflow-auto scrollbar-hide")} />
                 </div>
             </div>
-            <div className="flex  justify-start items-start w-full">
-                <ProductReview {...{reviews, isLoading}} className="text-gray-600 body-font" />
+            <div className="w-full mx-auto sm:w-96 md:w-8/12 xl:w-full flex lg:flex-row-reverse flex-col lg:gap-8 sm:gap-6 gap-4">
+                <ProductReview {...{reviews, isLoading}} className="mt-[4rem] text-gray-600 flex justify-between items-start flex-col lg:flex-row w-full body-font" />
             </div>
         </div>
     );
