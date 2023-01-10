@@ -9,9 +9,9 @@ const TotalAmount = ({sub_total, ...props}) => {
 
     return (
         <div {...props}>
-            <div className="flex justify-between text-base font-medium text-gray-900">
+            <div className="text-lg flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p className='text-2xl' >₹{convetRuppesFormat(sub_total)}</p>
+                <p>₹{convetRuppesFormat(sub_total)}</p>
             </div>
             <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
             <div className="mt-6">

@@ -139,7 +139,7 @@ const ProductHeader = ({ setOpen, isLoggedIn, navigation, classNames }) => {
 
                             {/* Cart */}
                             {isLoggedIn ? <div className="flex lg:ml-6 p-2 text-gray-400 hover:text-gray-500">
-                                <NavLink className="flex relative" to="/add-to-cart/04">
+                                <NavLink className="flex relative" to="/add-to-cart">
                                     <ShoppingBagIcon className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500 cursor-pointer" aria-hidden="true" />
                                     <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{ count: 1, type: 'count' }} />
                                 </NavLink>

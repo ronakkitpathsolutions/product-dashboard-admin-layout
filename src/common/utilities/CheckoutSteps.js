@@ -21,7 +21,6 @@ export default CheckoutSteps
 const OrderDetails = ({products}) => {
 
     const sub_total = products?.reduce((accum, current) => {
-        console.log('accum :>> ', accum);
         return accum + (current?.price * current?.qty)
     }, 0)
 

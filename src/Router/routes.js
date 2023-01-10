@@ -42,7 +42,7 @@ export const route = [
     },
     {
         id: "user_cart_page",
-        path: "/add-to-cart/:id",
+        path: "/add-to-cart",
         isPrivate: true,
         element: <Cart/>,
         access: ['user']

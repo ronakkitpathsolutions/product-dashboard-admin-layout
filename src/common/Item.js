@@ -28,10 +28,10 @@ const Item = ({qty, product_image, product_name, name, price, color, quantity, .
                 <div className="flex flex-1 items-end justify-between text-sm">
                     <div className='felx flex-col'>
                         <p className="text-gray-500 mb-2">Qty {qty}</p>
-                        <p className="text-gray-500 bg-green-500 text-white text-[12px] font-medium px-2 border-rounded">{nett_percentage / qty}% off</p>
+                        <p className="text-gray-500 bg-green-500 text-white text-[12px] font-medium px-2 border-rounded">{Math.round(nett_percentage) / qty}% off</p>
                     </div>
                     <div className='flex flex-col' >
-                        <p className="ml-4 text-md line-through text-gray-500 text-[1rem] font-medium">₹{convetRuppesFormat(((qty || 1) * price) + percentage)}</p>
+                        <p className="ml-4 text-md line-through text-gray-500 font-medium">₹{convetRuppesFormat(((qty || 1) * price) + percentage)}</p>
                         <p className="ml-4 text-md font-medium">₹{convetRuppesFormat((qty || 1) * price)}</p>
                     </div>
                 </div>

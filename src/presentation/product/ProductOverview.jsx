@@ -4,6 +4,7 @@ import Icon from "../../common/Icon";
 import ProductImages from "../../common/utilities/Products/ProductImages";
 import ProductSocial from "../../common/utilities/Products/ProductSocial";
 import Reviews from "../../common/utilities/Products/Reviews";
+import Spinner from "../../common/utilities/Spinner";
 import useProductOverview from "../../components/product/productOverview";
 import useProducts from "../../components/product/products";
 import useWishlists from "../../components/wishlists/wishlists";
@@ -13,7 +14,7 @@ import ProductReview from "../review/ProductReview";
 
 const ProductOverview = ({id, data, ...props}) => {
     const { wishlists, addToWishList, user_id } = useProducts()
-    const {count, handleQuantity, reviews, isLoading, showImage, handleShowCase, configData} = useProductOverview(id)
+    const {count, handleQuantity, reviews, isLoading, showImage, handleShowCase, configData, handleCartItem, isButtonLoading } = useProductOverview(id, data)
     useWishlists(user_id)
 
     return (
@@ -57,8 +58,8 @@ const ProductOverview = ({id, data, ...props}) => {
                     <Button className="rounded text-bold text-white py-2 px-4 bg-yellow-500 p-0 border-0 inline-flex items-center justify-center text-gray-500 mt-2" >
                         Buy now <Icon className="ml-2 w-5 h-5" type="tag_solid" />
                     </Button>
-                    <Button className="rounded text-bold text-white py-2 px-4 bg-indigo-500 p-0 border-0 inline-flex items-center justify-center text-gray-500 mt-2" >
-                        Add to cart <Icon className="ml-2 w-6 h-6" type="cart" />
+                    <Button handleClick={() => handleCartItem(id)} className="rounded text-bold text-white py-2 px-4 bg-indigo-500 p-0 border-0 inline-flex items-center justify-center text-gray-500 mt-2" >
+                        { isButtonLoading ? "Loading" : "Add to cart" }{isLoading ? <Spinner spinnerStyle="ml-1 -mt-[3px] w-4 h-4" /> : <Icon className="ml-2 w-6 h-6" type="cart" />}
                     </Button>
                     </div>
                 </div>

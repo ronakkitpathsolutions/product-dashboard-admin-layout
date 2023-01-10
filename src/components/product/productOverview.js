@@ -1,12 +1,21 @@
 import { useCallback, useEffect, useState } from 'react'
 import { getProductReview } from '../../apis/review'
+import { addNewCartItem } from '../../apis/product'
+import { useSelector } from 'react-redux'
 
-const useProductOverview = (id) => {
+const useProductOverview = (id, config) => {
+
+
+    const user_id = useSelector(({userData}) => userData?.user?.user_id)
     const [showImage, setShowImage] = useState(null)
-    const [productConfig, setProductConfig] = useState({})
+    const [productConfig, setProductConfig] = useState({
+      color: config?.data?.colors?.[0] || null,
+      category: config?.data?.category || null
+    })
     const [count, setCount] = useState(1)
     const [reviews, setReviews] = useState([])
     const [isLoading, setLoading] = useState(false)
+    const [isButtonLoading, setIsButtonLoading] = useState(false)
 
     const handleFetchReviews = async() => {
         setLoading(true)
@@ -36,6 +45,23 @@ const useProductOverview = (id) => {
       setProductConfig({...productConfig, color: value })
     }
 
+    const handleCartItem = async(product_id) => {
+        setIsButtonLoading(true)
+      try {
+
+        const response = await addNewCartItem(user_id, { product_id, ...productConfig, qty: count })
+        if(response?.data){
+          console.log('response :>> ', response);
+          setIsButtonLoading(false)
+        }
+
+      } catch (error) {
+        console.log('error :>> ', error);
+        setIsButtonLoading(false)
+      }
+      console.log('data :>> ', { product_id, ...productConfig, qty: count });
+    }
+
     const handleShowCase = useCallback((index) => setShowImage(index), [])
 
     const configData = {
@@ -45,7 +71,7 @@ const useProductOverview = (id) => {
       placeHolder: "Choose color",
     }
 
-  return {count, showImage, reviews, isLoading, handleQuantity, handleShowCase, configData}
+  return {count, showImage, reviews, isLoading, handleQuantity, handleShowCase, configData, handleCartItem, isButtonLoading}
 }
 
 
