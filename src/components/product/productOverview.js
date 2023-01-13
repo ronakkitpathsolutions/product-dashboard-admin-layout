@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { getProductReview } from '../../apis/review'
 import { addNewCartItem } from '../../apis/product'
-import { useSelector } from 'react-redux'
+import { fetchAllCartItems } from '../../redux/action'
+import { useDispatch, useSelector } from 'react-redux'
 
 const useProductOverview = (id, config) => {
 
-
+    const dispatch = useDispatch()
     const user_id = useSelector(({userData}) => userData?.user?.user_id)
     const [showImage, setShowImage] = useState(null)
     const [productConfig, setProductConfig] = useState({
@@ -51,7 +52,8 @@ const useProductOverview = (id, config) => {
 
         const response = await addNewCartItem(user_id, { product_id, ...productConfig, qty: count })
         if(response?.data){
-          console.log('response :>> ', response);
+          const { cart_data } = response?.data?.data
+          dispatch(fetchAllCartItems(cart_data))
           setIsButtonLoading(false)
         }
 
@@ -59,7 +61,6 @@ const useProductOverview = (id, config) => {
         console.log('error :>> ', error);
         setIsButtonLoading(false)
       }
-      console.log('data :>> ', { product_id, ...productConfig, qty: count });
     }
 
     const handleShowCase = useCallback((index) => setShowImage(index), [])

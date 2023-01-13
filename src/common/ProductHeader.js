@@ -9,8 +9,13 @@ import Button from './Forms/Button'
 import Badge from './utilities/Badge'
 import CurrencyImg from './utilities/CurrencyImg'
 import ProfileSection from './utilities/ProfileSection'
+import { useSelector } from 'react-redux'
+import useCartData from '../components/cart/cartData'
 
 const ProductHeader = ({ setOpen, isLoggedIn, navigation, classNames }) => {
+    useCartData()
+    const cart_items = useSelector(({cartReducer}) =>  cartReducer?.cart)
+
     return (
         <header className="relative bg-white">
             <nav aria-label="Top" className="mx-auto w-full px-4 sm:px-6 lg:px-8">
@@ -141,7 +146,7 @@ const ProductHeader = ({ setOpen, isLoggedIn, navigation, classNames }) => {
                             {isLoggedIn ? <div className="flex lg:ml-6 p-2 text-gray-400 hover:text-gray-500">
                                 <NavLink className="flex relative" to="/add-to-cart">
                                     <ShoppingBagIcon className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500 cursor-pointer" aria-hidden="true" />
-                                    <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{ count: 1, type: 'count' }} />
+                                    <Badge className="absolute px-1.5 text-[12px] -right-[8px] -top-[4px] text-center font-bold bg-red-600 text-white rounded-full" {...{ count: cart_items?.length, type: 'count' }} />
                                 </NavLink>
                             </div> : null}
                             

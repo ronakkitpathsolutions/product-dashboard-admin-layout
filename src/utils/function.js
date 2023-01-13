@@ -65,3 +65,12 @@ export const addDataInPositions = (data, value) => {
         return cloneData
     }else return []
 }
+
+export const fetchAllWishLists = (value) => {
+    if (!value) return {}
+    const wishObj = {}
+    value?.forEach(val => {
+      wishObj[val?._id] = !!val?._id
+    })
+    return wishObj
+  }
