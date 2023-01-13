@@ -10,7 +10,7 @@ const initialState = {
 
 const useProfile = (otherData) => {
 
-    const wishlistsData = useSelector(({productReducer}) => productReducer.wishlists)
+    const wishlistsData = useSelector(({wishlistReducer}) => wishlistReducer.wishlists)
     const dispatch = useDispatch()
     const history = useHistory()
     const [formData, setFormData] = useState(initialState)

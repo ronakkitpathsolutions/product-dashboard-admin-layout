@@ -59,7 +59,7 @@ const ProductOverview = ({id, data, ...props}) => {
                         Buy now <Icon className="ml-2 w-5 h-5" type="tag_solid" />
                     </Button>
                     <Button handleClick={() => handleCartItem(id)} className="rounded text-bold text-white py-2 px-4 bg-indigo-500 p-0 border-0 inline-flex items-center justify-center text-gray-500 mt-2" >
-                        { isButtonLoading ? "Loading" : "Add to cart" }{isLoading ? <Spinner spinnerStyle="ml-1 -mt-[3px] w-4 h-4" /> : <Icon className="ml-2 w-6 h-6" type="cart" />}
+                        { isButtonLoading ? "Loading" : "Add to cart" }{isButtonLoading ? <Spinner spinnerStyle="ml-1 -mt-[3px] w-4 h-4" /> : <Icon className="ml-2 w-6 h-6" type="cart" />}
                     </Button>
                     </div>
                 </div>

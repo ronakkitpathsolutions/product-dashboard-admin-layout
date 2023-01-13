@@ -1,12 +1,13 @@
 import { constant } from "../constant/index";
 
+
+//user actions
 export const setLoggedUser = (payload) => {
     return {
         type: constant.USER_DATA,
         payload
     }
 }
-
 export const setLogOutUser = (payload = {}) => {
     return {
         type: constant.LOG_OUT,
@@ -14,6 +15,9 @@ export const setLogOutUser = (payload = {}) => {
     }
 }
 
+
+
+//wishlists actions
 export const addwishlist = (payload) => {
     return {
         type: constant.ADD_WISHLIST,
@@ -26,6 +30,24 @@ export const addToAllWishlists = (payload) => {
         payload
     }
 }
+
+export const getAllWishlistsProducts = (payload) => {
+    return {
+        type: constant.ALL_WISHLISTS_PRODUCTS,
+        payload
+    }
+}
+
+export const deleteWishlists = (payload) => {
+    return {
+        type: constant.DELETE_WISHLIST_PRODUCT,
+        payload
+    }
+}
+
+
+
+//product actions
 export const allProducts = (payload) => {
     return {
         type: constant.ALL_PRODUCTS,
@@ -33,8 +55,10 @@ export const allProducts = (payload) => {
     }
 }
 
+
+
+// cart actions
 export const fetchAllCartItems = (payload) => {
-    console.log('payload :>> ', payload);
     return { 
         type: constant.CART_ITEMS, 
         payload

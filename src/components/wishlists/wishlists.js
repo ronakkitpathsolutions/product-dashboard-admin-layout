@@ -1,26 +1,37 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import useFetch from '../../hooks/useFetch'
-import { addToAllWishlists } from '../../redux/action'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToAllWishlists, getAllWishlistsProducts } from '../../redux/action'
+import { getWishLists } from '../../apis/wishlists'
+import { fetchAllWishLists } from '../../utils/function'
 
-const useWishlists = (user_id) => {
+const useWishlists = () => {
+
+  const user = useSelector(({ userData }) => userData?.user)
   const dispatch = useDispatch()
-  const { data, isLoading, error } = useFetch(`/user-wishlists/get/${user_id}`, "get", {}, !user_id)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const fetchAllWishLists = (value) => {
-    if (!value) return {}
-    const wishObj = {}
-    value?.forEach(val => {
-      wishObj[val?._id] = !!val?._id
-    })
-    return wishObj
+  const fetchWishlistsData = async () => {
+    setIsLoading(true)
+    try {
+      const response = await getWishLists(user?.user_id)
+      if (response?.data) {
+        const { data } = response?.data
+        dispatch(addToAllWishlists(fetchAllWishLists(user?.user_id ? data?.wish_lists : null)))
+        dispatch(getAllWishlistsProducts(user?.user_id ? data?.wish_lists : []))
+        setIsLoading(false)
+      }
+    } catch (error) {
+      console.log('error :>> ', error);
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
-    (data || !user_id) && dispatch(addToAllWishlists(fetchAllWishLists(user_id ? data?.data?.wish_lists : null)))
-  }, [data, dispatch, user_id])
+    fetchWishlistsData()
+    // eslint-disable-next-line
+  }, [])
 
-  return { data: data?.data, isLoading, error }
+  return { isLoading }
 }
 
 export default useWishlists

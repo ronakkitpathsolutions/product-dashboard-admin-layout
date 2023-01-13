@@ -1,24 +1,30 @@
 import { constant } from "../../constant";
 
 const initialState = {
-    wishlists: {},
-    products: []
+    products: [],
+    view_product: {}
 }
 
 export const productReducer = (state = initialState, action) => {
     const { payload, type } = action
     switch (type) {
-        case constant.ADD_WISHLIST:
-            return {
-                ...state, wishlists: { ...state.wishlists, [payload.id]: payload.checked }
-            }
-        case constant.ALL_WISHLISTS:
-            return {
-                ...state, wishlists: { ...payload }
-            }
         case constant.ALL_PRODUCTS:
             return {
                 ...state, products: payload
+            }
+        case constant.VIEW_PRODUCT:
+            return {
+                ...state, view_product: payload
+            }
+        case constant.UPDATE_PRODUCT:
+            return {
+                ...state, view_product: payload 
+            }
+        case constant.DELETE_PRODUCT:
+            const cloneData = [...state.products]
+            cloneData.splice(payload.index, 1)
+            return {
+                ...state, products: cloneData
             }
         default: return state
     }
